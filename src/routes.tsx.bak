@@ -1,0 +1,21 @@
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Feed from './components/Feed';
+import Profile from './components/Profile';
+import DirectMessages from './components/DirectMessages';
+import KeysPage from './app/keys/page';
+
+const AppRoutes: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="/feed" replace />} />
+      <Route path="/feed" element={<Feed />} />
+      <Route path="/profile/:pubkey" element={<Profile />} />
+      <Route path="/keys" element={<KeysPage />} />
+      <Route path="/dm" element={<DirectMessages />} />
+      <Route path="/dm/:pubkey" element={<DirectMessages />} />
+    </Routes>
+  );
+};
+
+export default AppRoutes;
